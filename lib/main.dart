@@ -15,36 +15,40 @@ class Homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Awesome")
+        title: const Text("Awesome App"),
+        backgroundColor: Colors.purple,
       ),
-      body: Align(
-        alignment: Alignment.bottomRight,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Container(
-            width: 200,
-            height: 400,
-            color: Colors.black,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [ Container(
-                height: 100,
-                width: 100,
-                color: Colors.green,
-              ), Container(
-                height: 100,
-                width: 100,
-                color: Colors.red,
-              ), Container(
-                height: 100,
-                width: 100,
-                color: Colors.yellow,
-              )],
-            ),
-          ),
-        ),
-      )
+      body: Container(),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: const [
+             UserAccountsDrawerHeader(accountName: Text("Vishal Chand"), accountEmail: Text("sam.chand96@gmail.com"), currentAccountPicture:
+              CircleAvatar(
+              backgroundImage: NetworkImage("https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60"),
+             ), decoration: BoxDecoration(
+              color: Colors.purple
+             ),), 
+             ListTile( 
+              leading: Icon(Icons.person),
+              title: Text("Account"),
+              subtitle: Text("Personal"),
+              trailing: Icon(Icons.edit),
+              ),
+              ListTile(
+                leading: Icon(Icons.email),
+                title: Text("abc@gmail.com"),
+                subtitle: Text("Issue"),
+                trailing: Icon(Icons.send),
+              )
+          ],
+        )
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: Colors.purple,
+        child: const Icon(Icons.edit),
+      ),
     );
   }
 }
